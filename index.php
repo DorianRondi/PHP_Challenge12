@@ -71,14 +71,12 @@ if(isset($_POST["modifZone"]) && ($_POST["delete"] != "on")){
     /*header("location:index.php");
     exit();*/
 }
-if(isset($_GET["d"])){
-    $_GET["f"] = $_GET["d"].".directory";
-}
 // @ devant une fonction permet de caché les erreurs. //
 $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);
 ?>
 <form action="index.php" method="POST">
     <?php
+    if($ext){
     switch($ext){
         case "txt":
         case "doc":
@@ -95,10 +93,10 @@ $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);
     </fieldset>
     <?php
             break;
-            case "jpg":
-            case "jpeg":
-            case "bmp":
-            case "png":
+        case "jpg":
+        case "jpeg":
+        case "bmp":
+        case "png":
     ?>
     <input type="hidden" name="fichierAmodifier" value="<?= $_GET["f"]; ?>">
     <fieldset>
@@ -108,20 +106,19 @@ $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);
     </fieldset>
     <img src="<?= $_GET["f"] ?>" alt="">
     <?php
-        break;
-        case ".directory":
+            break;
+        default:
+            break;
+    }
+    }elseif(!$ext && isset($_GET["d"])){
     ?>
-    <input type="hidden" name="fichierAmodifier" value="<?= $_GET["f"]; ?>">
+    <input type="hidden" name="fichierAmodifier" value="<?= $_GET["d"]; ?>">
     <fieldset>
         <input type="submit" value="supprimer">
         <label for="supp">Supprimer le dossier et tout son contenue ?</label>
         <input type="hidden" id="supp" name="deleteDIR">
     </fieldset>
     <?php
-            break;
-        case "":
-        default:
-            break;
     }
     ?>
 </form>

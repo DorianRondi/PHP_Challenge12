@@ -110,7 +110,7 @@ $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);
     ?>
     <input type="hidden" name="fichierAmodifier" value="<?= $_GET["d"]; ?>">
     <fieldset>
-        <input type="submit" value="supprim">
+        <input type="submit" value="supprimer">
         <label for="supp">Supprimer le dossier et tout son contenue ?</label>
         <input type="hidden" id="supp" name="deleteDIR">
     </fieldset>

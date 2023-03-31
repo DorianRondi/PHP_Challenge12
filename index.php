@@ -71,6 +71,10 @@ if(isset($_POST["modifZone"]) && ($_POST["delete"] != "on")){
     /*header("location:index.php");
     exit();*/
 }
+if(isset($_GET["d"])){
+    $_GET["f"] = $_GET["d"].".directory";
+    var_dump($_GET["f"]);
+}
 // @ devant une fonction permet de caché les erreurs. //
 $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);
 ?>
@@ -106,9 +110,9 @@ $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);
     <img src="<?= $_GET["f"] ?>" alt="">
     <?php
         break;
-        case "":
+        case ".directory":
     ?>
-    <input type="hidden" name="fichierAmodifier" value="<?= $_GET["d"]; ?>">
+    <input type="hidden" name="fichierAmodifier" value="<?= $_GET["f"]; ?>">
     <fieldset>
         <input type="submit" value="supprimer">
         <label for="supp">Supprimer le dossier et tout son contenue ?</label>
@@ -116,6 +120,7 @@ $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);
     </fieldset>
     <?php
             break;
+        case "":
         default:
             break;
     }

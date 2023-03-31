@@ -73,7 +73,6 @@ if(isset($_POST["modifZone"]) && ($_POST["delete"] != "on")){
 }
 if(isset($_GET["d"])){
     $_GET["f"] = $_GET["d"].".directory";
-    var_dump($_GET["f"]);
 }
 // @ devant une fonction permet de caché les erreurs. //
 $ext = @pathinfo($_GET["f"], PATHINFO_EXTENSION);

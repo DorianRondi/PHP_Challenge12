@@ -1,3 +1,4 @@
-# PHP: Manipulation des fichiers sur le serveur.
+# PHP: Manipulation de fichiers sur un serveur.
 
-Ce Template html va te servir de base pour réaliser la quête sur la manipulation des fichiers.
+Création d'un crawler de dossiers qui affiche l'arborescence et le contenus d'un dossier et de ses sous dossiers.
+Avec la possibilitée de modifier ou supprimer les fichiers.
